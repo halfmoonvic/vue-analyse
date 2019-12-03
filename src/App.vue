@@ -1,13 +1,35 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <span>{{ appMsg }}</span>
+    <hello-world />
   </div>
 </template>
 
 <script>
+// import HelloWorld from '@/components/HelloWorld'
+
 export default {
-  name: 'App'
+  name: 'App',
+  // components: {
+  //   HelloWorld
+  // },
+  data() {
+    return {
+      appMsg: 'App component'
+    }
+  },
+  beforeCreate() {
+    console.log('before create: App.vue')
+  },
+  created() {
+    console.log('created: App.vue')
+  },
+  beforeMount() {
+    console.log('before mount: App.vue')
+  },
+  mounted() {
+    console.log('mounted: App.vue')
+  }
 }
 </script>
 
