@@ -1,13 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    {{ nested.msg }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      nested: {
+        msg: '你好啊，格里高利'
+      }
+    }
+  }
 }
 </script>
 
