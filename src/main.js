@@ -38,36 +38,61 @@ const allComponent = {
 //   })
 // })
 
+Vue.component('AllComponent', allComponent)
+
 // function () {
 //   return new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, "./src/components/HelloWorld.vue"));
 // }
 // Vue.component('HelloWorld', () => import('./components/HelloWorld.vue'))
 
-const LoadingComp = {
-  mounted() {
-    console.log('loading comp')
-  }
-}
+// const LoadingComp = {
+//   mounted() {
+//     console.log('loading comp')
+//   }
+// }
 
-const ErrorComp = {
-  mouted() {
-    console.log('error comp')
-  }
-}
+// const ErrorComp = {
+//   mouted() {
+//     console.log('error comp')
+//   }
+// }
 
-const AsyncComp = () => ({
-  // 需要加载的组件。应当是一个 Promise
-  component: import('./components/HelloWorld.vue'),
-  // 加载中应当渲染的组件
-  loading: LoadingComp,
-  // 出错时渲染的组件
-  error: ErrorComp,
-  // 渲染加载中组件前的等待时间。默认：200ms。
-  delay: 200,
-  // 最长等待时间。超出此时间则渲染错误组件。默认：Infinity
-  timeout: 3000
-})
-Vue.component('HelloWorld', AsyncComp)
+// const AsyncComp = () => ({
+//   // 需要加载的组件。应当是一个 Promise
+//   component: import('./components/HelloWorld.vue'),
+//   // 加载中应当渲染的组件
+//   loading: LoadingComp,
+//   // 出错时渲染的组件
+//   error: ErrorComp,
+//   // 渲染加载中组件前的等待时间。默认：200ms。
+//   delay: 200,
+//   // 最长等待时间。超出此时间则渲染错误组件。默认：Infinity
+//   timeout: 3000
+// })
+// Vue.component('HelloWorld', AsyncComp)
+
+// return c(
+//   'div',
+//   {
+//     attrs: {
+//       id: 'app',
+//       class: 'wrapper'
+//     }
+//   },
+//   [
+//     c(
+//       'span',
+//       {
+//         attrs: {
+//           class: 'children'
+//         }
+//       },
+//       this.mainMsg
+//     ),
+//     'pure text 1',
+//     'pure text 2',
+//   ]
+// )
 
 /* eslint-disable no-new */
 new Vue({
@@ -77,6 +102,9 @@ new Vue({
     return {
       mainMsg: 'mainjs'
     }
+  },
+  components: {
+    testMainComp: {}
   },
   beforeCreate() {
     console.log('before create: main.js')
