@@ -10,6 +10,12 @@
 <script>
 export default {
   name: 'App',
+  props: {
+    title: {
+      type: String,
+      default: 'test props app'
+    }
+  },
   data() {
     return {
       flag: true,
@@ -27,7 +33,12 @@ export default {
     toggle() {
       this.flag = !this.flag
     }
-  }
+  },
+  // watch: {
+  //   msg() {
+  //     this.msg = Math.random()
+  //   }
+  // }
 }
 </script>
 
