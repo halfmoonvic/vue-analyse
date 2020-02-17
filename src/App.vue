@@ -1,44 +1,44 @@
 <template>
   <div id="app">
-    <div v-if="flag">{{ msg }}</div>
-    <div v-else>{{ msg1 }}</div>
+    <!-- <div>{{ msg }}</div> -->
+    <ul>
+      <li v-for="item in list">{{ item }}</li>
+    </ul>
     <button @click="change">change</button>
-    <button @click="toggle">toggle</button>
+    <!-- <button @click="add">add</button> -->
   </div>
 </template>
 
 <script>
+import Vue from 'vue';
 export default {
   name: 'App',
-  props: {
-    title: {
-      type: String,
-      default: 'test props app'
-    }
-  },
+  // props: {
+  //   title: {
+  //     type: String,
+  //     default: 'test props app'
+  //   }
+  // },
   data() {
     return {
-      flag: true,
-      msg: 'Hello World',
-      msg1: 'Hello Vue',
-      nested: {
-        nestedMsg: '你好啊，格里高利'
-      }
+      // msg: {
+      //   a: 'hello'
+      // },
+      list: [1, 2]
     }
   },
   methods: {
     change() {
-      this.msg = Math.random()
+      // this.list[1] = 3
+       Vue.set(this.list, 1, 3)
     },
-    toggle() {
-      this.flag = !this.flag
+    add() {
+      // this.msg.b = 'world'
+      // Vue.set(this.msg, 'b', 'world')
+      // this.list[2] = 4
+      // this.list.push(4)
     }
-  },
-  // watch: {
-  //   msg() {
-  //     this.msg = Math.random()
-  //   }
-  // }
+  }
 }
 </script>
 
