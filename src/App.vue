@@ -15,6 +15,11 @@ export default {
       firstName: 'wang',
       lastName: 'lin',
       useless: 0,
+      nested: {
+        a: {
+          b: 1
+        }
+      }
     }
   },
   computed: {
@@ -28,9 +33,27 @@ export default {
   methods: {
     change() {
       this.useless++
+      this.nested.a.b = 2
     },
     changeLast() {
       this.lastName = 'haha'
+    }
+  },
+  watch: {
+    useless(newVal) {
+      console.log('useless: ', newVal)
+    },
+    name: {
+      immediate: true,
+      handler(newVal) {
+        console.log('name: ', newVal)
+      }
+    },
+    nested: {
+      deep: true,
+      handler(newVal) {
+        console.log('nested: ', newVal.a.b)
+      }
     }
   }
 }
