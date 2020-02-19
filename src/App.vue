@@ -1,13 +1,27 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <hello-world :flag="flag" />
+    <button @click="toggle">toggle</button>
   </div>
 </template>
 
 <script>
+import HelloWorld from '@/components/HelloWorld.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    HelloWorld
+  },
+  data() {
+    return {
+      flag: true
+    }
+  },
+  methods: {
+    toggle() {
+      this.flag = !this.flag
+    }
+  }
 }
 </script>
 
