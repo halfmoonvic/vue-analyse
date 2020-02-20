@@ -25,7 +25,14 @@ export default {
   },
   methods: {
     change() {
-      this.items.reverse().push({ id: 4, val: 'E' })
+      this.items = [
+        { id: 5, val: 'F' },
+        { id: 3, val: 'D' },
+        { id: 2, val: 'C' },
+        { id: 1, val: 'B' },
+        { id: 0, val: 'A' },
+        { id: 4, val: 'E' }
+      ]
     }
   }
 }
