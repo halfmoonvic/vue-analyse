@@ -5,17 +5,23 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-const CompA = {
+const Comp = {
   template: `
     <div>
       <p>Name: {{name}}</p>
-      <p>NickName: {{nickName}}</p>
+      <p>Nexted: {{nested.attr}}</p>
+      <button @click="haldleClick">son component change</button>
     </div>
   `,
   // props: ['name', 'nick-name']
   props: {
-    name: String,
-    nickName: [Boolean, String]
+    name: [Boolean, String],
+    nested: Object
+  },
+  methods: {
+    haldleClick() {
+      this.nested.attr = 'hahaha'
+    }
   }
 }
 
@@ -46,12 +52,25 @@ const CompB = {
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  components: { CompA, CompB },
+  components: { Comp },
+  data() {
+    return {
+      name: 'lin yue',
+      nested: {
+        attr: 'some val'
+      }
+    }
+  },
   router,
   template: `
     <div>
-      <comp-a name="jackson" nick-name="nick-name" />
-      <comp-b :age="18" sex="male" />
+      <comp :name="name" :nested="nested" />
+      <button @click="haldleClick">father component change</button>
     </div>
-  `
+  `,
+  methods: {
+    haldleClick() {
+      this.name = 'other name'
+    }
+  }
 })
